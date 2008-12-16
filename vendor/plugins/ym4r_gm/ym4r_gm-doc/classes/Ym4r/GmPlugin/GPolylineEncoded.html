@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Ym4r::GmPlugin::GPolylineEncoded</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Ym4r::GmPlugin::GPolylineEncoded</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/gm_plugin/overlay_rb.html">
+                lib/gm_plugin/overlay.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+Encoded <a href="GPolyline.html">GPolyline</a> class
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000024">create</a>&nbsp;&nbsp;
+      <a href="#M000023">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="MappingObject.html">MappingObject</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">color</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">levels</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">num_levels</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">opacity</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">points</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">weight</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">zoom_factor</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">(options={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/gm_plugin/overlay.rb, line 112</span>
+112:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>={})
+113:         <span class="ruby-comment cmt">#points = options[:points]</span>
+114:         <span class="ruby-comment cmt">#if !points.empty? and points[0].is_a?(Array)</span>
+115:         <span class="ruby-comment cmt">#  @points = points.collect { |pt| GLatLng.new(pt) }</span>
+116:         <span class="ruby-comment cmt">#else</span>
+117:         <span class="ruby-comment cmt">#@points = points</span>
+118:           <span class="ruby-comment cmt">#end</span>
+119:         <span class="ruby-ivar">@points</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:points</span>]
+120:         <span class="ruby-ivar">@color</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:color</span>]
+121:         <span class="ruby-ivar">@weight</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:weight</span>]
+122:         <span class="ruby-ivar">@opacity</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:opacity</span>]
+123:         <span class="ruby-ivar">@levels</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:levels</span>] <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;BBBBBBBBBBBB&quot;</span>
+124:         <span class="ruby-ivar">@zoom_factor</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:zoom_factor</span>] <span class="ruby-operator">||</span> <span class="ruby-value">32</span>
+125:         <span class="ruby-ivar">@num_levels</span> = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">:num_levels</span>] <span class="ruby-operator">||</span> <span class="ruby-value">4</span>
+126:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">create</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/gm_plugin/overlay.rb, line 127</span>
+127:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+128:         <span class="ruby-identifier">a</span> = <span class="ruby-node">&quot;new GPolyline.fromEncoded({points: #{MappingObject.javascriptify_variable(points)},\n&quot;</span> 
+129:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;levels: #{MappingObject.javascriptify_variable(@levels)},&quot;</span>
+130:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;zoomFactor: #{MappingObject.javascriptify_variable(@zoom_factor)},&quot;</span>
+131:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;numLevels: #{MappingObject.javascriptify_variable(@num_levels)}&quot;</span>
+132:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;,color: #{MappingObject.javascriptify_variable(@color)}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@color</span>
+133:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;,weight: #{MappingObject.javascriptify_variable(@weight)}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@weight</span>
+134:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;,opacity: #{MappingObject.javascriptify_variable(@opacity)}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@opacity</span>
+135:         <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value str">&quot;})&quot;</span>
+136:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

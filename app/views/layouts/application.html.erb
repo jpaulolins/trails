@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Trails</title>
+<%= stylesheet_link_tag 'default' %>
+</head>
+<body>
+<img id="beta" alt="" src="/images/beta_hdr.png"/>
+<div id="trim"></div>
+<div id="fence">
+  <div id="header">
+    <!-- Header -->
+    <div class="logo">
+      <h1>TRAILS</h1>
+      <i>Social Tracking Service</i>
+    </div>
+  </div>
+  <div class="topmenu">
+    <!-- TODO: Logo -->
+      <div class="nav" id="nav">
+      <ul>
+        <li><%= link_to "Home", { :controller => "site", :action => "index" } %></li>
+        <li><%= link_to "Trails", trails_url %></li>
+        <li><a href="/">People</a></li>
+        <li><a href="/">Events</a></li>
+        <li><a href="/">Settings</a></li>
+      </ul>
+
+      <div class="account_nav">
+        <ul>
+          <% if logged_in? %>
+            <li>Logged in as <%= current_user.login %></li>
+            <li><%= link_to "Logout", session_path , { :method => :delete }  %></li>
+          <% else %>
+            <li><%= link_to "Sign in", new_session_path() %></li>
+            <li><%= link_to "Register", new_user_path() %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div id="content">
+  <%= flash_message %>
+  <%= yield %>
+</div>
+
+<!-- Footer -->
+<div id="footer">&copy; 2008 <a href="http://www.substanceofcode.com">Tommi Laukkanen</a></div>
+  
+</body>
+</html>

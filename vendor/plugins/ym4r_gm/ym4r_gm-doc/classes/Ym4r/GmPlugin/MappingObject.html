@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: Ym4r::GmPlugin::MappingObject</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">Ym4r::GmPlugin::MappingObject</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/gm_plugin/mapping_rb.html">
+                lib/gm_plugin/mapping.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+The module where all the Ruby-to-JavaScript conversion takes place. It is
+included by all the classes in the YM4R library.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000007">[]</a>&nbsp;&nbsp;
+      <a href="#M000014">assign_to</a>&nbsp;&nbsp;
+      <a href="#M000018">create</a>&nbsp;&nbsp;
+      <a href="#M000011">declare</a>&nbsp;&nbsp;
+      <a href="#M000012">declare_random</a>&nbsp;&nbsp;
+      <a href="#M000013">declared?</a>&nbsp;&nbsp;
+      <a href="#M000009">escape_javascript</a>&nbsp;&nbsp;
+      <a href="#M000016">get_property</a>&nbsp;&nbsp;
+      <a href="#M000010">javascriptify_method</a>&nbsp;&nbsp;
+      <a href="#M000008">javascriptify_variable</a>&nbsp;&nbsp;
+      <a href="#M000006">method_missing</a>&nbsp;&nbsp;
+      <a href="#M000015">set_property</a>&nbsp;&nbsp;
+      <a href="#M000017">to_javascript</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">variable</td>
+          <td class="context-item-value">&nbsp;[R]&nbsp;</td>
+          <td class="context-item-desc">
+The name of the variable in JavaScript space.
+
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000009" class="method-detail">
+        <a name="M000009"></a>
+
+        <div class="method-heading">
+          <a href="#M000009" class="method-signature">
+          <span class="method-name">escape_javascript</span><span class="method-args">(javascript)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Escape string to be used in JavaScript. Lifted from rails.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000009-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000009-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 50</span>
+50:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">escape_javascript</span>(<span class="ruby-identifier">javascript</span>)
+51:         <span class="ruby-identifier">javascript</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/\r\n|\n|\r/</span>, <span class="ruby-value str">&quot;\\n&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-value str">&quot;\&quot;&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span> <span class="ruby-node">&quot;\\#{m}&quot;</span> }
+52:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000010" class="method-detail">
+        <a name="M000010"></a>
+
+        <div class="method-heading">
+          <a href="#M000010" class="method-signature">
+          <span class="method-name">javascriptify_method</span><span class="method-args">(method_name)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Transform a ruby-type method name (like add_overlay) to a JavaScript-style
+one (like addOverlay).
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000010-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000010-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 55</span>
+55:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">javascriptify_method</span>(<span class="ruby-identifier">method_name</span>)
+56:         <span class="ruby-identifier">method_name</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/_(\w)/</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">upcase</span>}
+57:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000008" class="method-detail">
+        <a name="M000008"></a>
+
+        <div class="method-heading">
+          <a href="#M000008" class="method-signature">
+          <span class="method-name">javascriptify_variable</span><span class="method-args">(arg)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Transforms a Ruby object into a JavaScript string : MAppingObject, String,
+Array, Hash and general case (using to_s)
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000008-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000008-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 31</span>
+31:       <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">javascriptify_variable</span>(<span class="ruby-identifier">arg</span>)
+32:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">MappingObject</span>)
+33:           <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_javascript</span>
+34:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+35:           <span class="ruby-node">&quot;\&quot;#{MappingObject.escape_javascript(arg)}\&quot;&quot;</span>
+36:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+37:           <span class="ruby-value str">&quot;[&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">collect</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-constant">MappingObject</span>.<span class="ruby-identifier">javascriptify_variable</span>(<span class="ruby-identifier">a</span>)}.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;,&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;]&quot;</span>
+38:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+39:           <span class="ruby-value str">&quot;{&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+40:             <span class="ruby-node">&quot;#{MappingObject.javascriptify_method(v[0].to_s)} : #{MappingObject.javascriptify_variable(v[1])}&quot;</span>
+41:           <span class="ruby-keyword kw">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;,&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-value str">&quot;}&quot;</span>
+42:         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">nil?</span>
+43:           <span class="ruby-value str">&quot;undefined&quot;</span>
+44:         <span class="ruby-keyword kw">else</span>
+45:           <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_s</span>
+46:         <span class="ruby-keyword kw">end</span>
+47:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">[]</span><span class="method-args">(index)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates javascript code for array or hash indexing
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 26</span>
+26:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">index</span>) <span class="ruby-comment cmt">#index could be an integer or string</span>
+27:         <span class="ruby-keyword kw">return</span> <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{to_javascript}[#{MappingObject.javascriptify_variable(index)}]&quot;</span>)
+28:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
+
+        <div class="method-heading">
+          <a href="#M000014" class="method-signature">
+          <span class="method-name">assign_to</span><span class="method-args">(variable)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Binds a Mapping object to a previously declared JavaScript variable of name
+<tt>variable</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000014-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000014-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 78</span>
+78:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">assign_to</span>(<span class="ruby-identifier">variable</span>)
+79:         <span class="ruby-ivar">@variable</span> = <span class="ruby-identifier">variable</span>
+80:         <span class="ruby-node">&quot;#{@variable} = #{create};&quot;</span>
+81:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="#M000018" class="method-signature">
+          <span class="method-name">create</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates a Mapping Object in JavaScript. To be implemented by subclasses if
+needed
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 104</span>
+104:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span>
+105:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000011" class="method-detail">
+        <a name="M000011"></a>
+
+        <div class="method-heading">
+          <a href="#M000011" class="method-signature">
+          <span class="method-name">declare</span><span class="method-args">(variable)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Declares a Mapping Object bound to a JavaScript variable of name
+<tt>variable</tt>.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000011-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000011-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 60</span>
+60:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">declare</span>(<span class="ruby-identifier">variable</span>)
+61:         <span class="ruby-ivar">@variable</span> = <span class="ruby-identifier">variable</span>
+62:         <span class="ruby-node">&quot;var #{@variable} = #{create};&quot;</span>
+63:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000012" class="method-detail">
+        <a name="M000012"></a>
+
+        <div class="method-heading">
+          <a href="#M000012" class="method-signature">
+          <span class="method-name">declare_random</span><span class="method-args">(init,size = 8)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+<a href="MappingObject.html#M000011">declare</a> with a random variable
+name
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000012-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000012-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 66</span>
+66:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">declare_random</span>(<span class="ruby-identifier">init</span>,<span class="ruby-identifier">size</span> = <span class="ruby-value">8</span>)
+67:         <span class="ruby-identifier">s</span> = <span class="ruby-identifier">init</span>.<span class="ruby-identifier">clone</span>
+68:         <span class="ruby-value">6</span>.<span class="ruby-identifier">times</span> { <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">i</span> = <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">rand</span>(<span class="ruby-value">62</span>); <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> ((<span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">10</span>) <span class="ruby-operator">?</span> <span class="ruby-value">48</span> <span class="ruby-operator">:</span> ((<span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">36</span>) <span class="ruby-operator">?</span> <span class="ruby-value">55</span> <span class="ruby-operator">:</span> <span class="ruby-value">61</span> ))).<span class="ruby-identifier">chr</span> }
+69:         <span class="ruby-identifier">declare</span>(<span class="ruby-identifier">s</span>)
+70:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="#M000013" class="method-signature">
+          <span class="method-name">declared?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks if the MappinObject has been declared
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000013-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000013-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 73</span>
+73:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">declared?</span>
+74:         <span class="ruby-operator">!</span><span class="ruby-ivar">@variable</span>.<span class="ruby-identifier">nil?</span>
+75:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="#M000016" class="method-signature">
+          <span class="method-name">get_property</span><span class="method-args">(property)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the code to get a <tt>property</tt> from the <a
+href="MappingObject.html">MappingObject</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000016-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000016-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 89</span>
+89:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">get_property</span>(<span class="ruby-identifier">property</span>)
+90:         <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{to_javascript}.#{MappingObject.javascriptify_method(property.to_s)}&quot;</span>)
+91:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">method_missing</span><span class="method-args">(name,*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Creates javascript code for missing methods + takes care of listeners
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 9</span>
+ 9:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span>(<span class="ruby-identifier">name</span>,<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+10:         <span class="ruby-identifier">str_name</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>
+11:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">str_name</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^on_(.*)/</span>
+12:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">!=</span> <span class="ruby-value">1</span>
+13:             <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>(<span class="ruby-value str">&quot;Only 1 argument is allowed on on_ methods&quot;</span>);
+14:           <span class="ruby-keyword kw">else</span>
+15:             <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;GEvent.addListener(#{to_javascript},\&quot;#{MappingObject.javascriptify_method($1)}\&quot;,#{args[0]})&quot;</span>)
+16:           <span class="ruby-keyword kw">end</span>
+17:         <span class="ruby-keyword kw">else</span>
+18:           <span class="ruby-identifier">args</span>.<span class="ruby-identifier">collect!</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+19:             <span class="ruby-constant">MappingObject</span>.<span class="ruby-identifier">javascriptify_variable</span>(<span class="ruby-identifier">arg</span>)
+20:           <span class="ruby-keyword kw">end</span>
+21:           <span class="ruby-constant">Variable</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;#{to_javascript}.#{MappingObject.javascriptify_method(str_name)}(#{args.join(&quot;,&quot;)})&quot;</span>)
+22:         <span class="ruby-keyword kw">end</span>
+23:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <a href="#M000015" class="method-signature">
+          <span class="method-name">set_property</span><span class="method-args">(property, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Assign the <tt>value</tt> to the <tt>property</tt> of the <a
+href="MappingObject.html">MappingObject</a>
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000015-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000015-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 84</span>
+84:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_property</span>(<span class="ruby-identifier">property</span>, <span class="ruby-identifier">value</span>)
+85:         <span class="ruby-node">&quot;#{to_javascript}.#{MappingObject.javascriptify_method(property.to_s)} = #{MappingObject.javascriptify_variable(value)}&quot;</span>
+86:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">to_javascript</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns a Javascript code representing the object
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/gm_plugin/mapping.rb, line 94</span>
+ 94:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_javascript</span>
+ 95:         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@variable</span>.<span class="ruby-identifier">nil?</span>
+ 96:           <span class="ruby-ivar">@variable</span>
+ 97:         <span class="ruby-keyword kw">else</span>
+ 98:           <span class="ruby-identifier">create</span>
+ 99:         <span class="ruby-keyword kw">end</span>
+100:       <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+development:
+  aws_access_key_id: 
+  aws_secret_access_key: 
+  salt: your_aws_sdb_proxy_secret_salt_here
+  port: 8888
+
+test:
+  aws_access_key_id: 
+  aws_secret_access_key: 
+  salt: your_aws_sdb_proxy_secret_salt_here
+  port: 8888
+
+production:
+  aws_access_key_id: 
+  aws_secret_access_key: 
+  salt: your_aws_sdb_proxy_secret_salt_here
+  port: 8888

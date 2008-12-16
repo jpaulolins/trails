@@ -1,0 +1,27 @@
+<%= javascript_include_tag :defaults %>
+<div id="main">
+  <%= GMap.header %>
+  <%= @map.to_html %>
+  <%= @map.div(:width => '100%', :height => '480px') %>
+</div>
+
+<div id="side">
+  <div class="section">
+    <div class="section-header">Summary</div>
+    <ul>
+      <li>Trail Name: <%=h @trail.name %></li>
+      <li>Total Points: <%=h @points.count %></li>
+      <% if @points.count > 0 %></li>
+        <li>Last Point Recived: lt - <%=h @points.last.lt %> | <%=h @points.last.lg %></li>
+        <li>Distance (KM): 0 </li>
+      <%- end %>
+
+    </ul>
+  </div>
+  <div class="section">
+    <div class="section-header">Actions</div>
+      
+  </div>
+
+</div>
+

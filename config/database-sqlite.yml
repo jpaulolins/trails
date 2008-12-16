@@ -1,0 +1,14 @@
+--- 
+development: 
+  adapter: postgresql
+  username: app14222
+  host: 10.252.154.195
+  database: app14222
+  password: WRxyWPTEgst
+test: 
+  adapter: postgresql
+  username: test_app14222
+  host: 10.252.154.195
+  database: test_app14222
+  password: Ba8-Ffesy9K+YNRG5
+production: development

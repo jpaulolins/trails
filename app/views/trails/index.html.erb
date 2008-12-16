@@ -1,0 +1,23 @@
+<h2>Tracks</h2>
+<table class="list">
+  <thead>
+    <tr>
+      <th>Track Name</th>
+      <th>Updated at</th>
+      <th>Created at</th>
+      <th>Actions</th>
+    </tr>
+    <tbody>
+    <% for trail in @trails %>
+    <tr>
+      <td><%=h trail.name %></td>
+      <td><%=h trail.updated_at %></td>
+      <td><%=h trail.created_at %></td>
+      <td><%= link_to 'Show', trail_path(trail) %> |
+          <%= link_to 'Edit', edit_trail_path(trail) %> | 
+          <%= link_to 'Destroy', trail_path(trail), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+    <tbody>
+</table>
+
